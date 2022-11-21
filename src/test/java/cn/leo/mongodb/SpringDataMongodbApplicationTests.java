@@ -24,4 +24,15 @@ class SpringDataMongodbApplicationTests {
         mongoTemplate.createCollection("emp");
     }
 
+    @Test
+    public void createDocument() {
+        boolean exists = mongoTemplate.collectionExists("emp");
+        if (exists) {
+            // 删除集合
+            mongoTemplate.dropCollection("emp");
+        }
+        //创建集合
+        mongoTemplate.createCollection("emp");
+    }
+
 }
